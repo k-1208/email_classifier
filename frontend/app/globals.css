@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf7f2;
+  --foreground: #12100c;
+  --surface: #fff7ea;
+  --surface-strong: #f7e1c6;
+  --accent: #d14900;
+  --accent-dark: #8a2d00;
+  --ink-soft: #5c5048;
+  --glow: rgba(209, 73, 0, 0.24);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.mesh-bg {
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(209, 73, 0, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(17, 77, 109, 0.18), transparent 40%),
+    radial-gradient(circle at 20% 85%, rgba(0, 141, 105, 0.16), transparent 45%),
+    linear-gradient(135deg, #faf7f2 0%, #fef3df 55%, #f9f5ee 100%);
+}
+
+.glass-card {
+  background: rgba(255, 247, 234, 0.9);
+  border: 1px solid rgba(18, 16, 12, 0.08);
+  box-shadow: 0 24px 60px rgba(18, 16, 12, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.shine {
+  background: linear-gradient(110deg, #fff7ea 0%, #fff2da 45%, #ffffff 75%);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 rgba(209, 73, 0, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 28px var(--glow);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(209, 73, 0, 0.0);
+  }
+}
+
+.rise-in {
+  animation: rise 0.7s ease-out both;
+}
+
+.glow-ring {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
